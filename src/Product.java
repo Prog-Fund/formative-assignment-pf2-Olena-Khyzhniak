@@ -5,16 +5,32 @@
  */
 public class Product {
 
-    private String productName ;    // max length = 20 characters, default value is "".
+    private String productName = "";
+    private int productCode = 5000 ;
+    private double unitCost = 1;
+    private boolean inCurrentProductLine;
+
+
+        if (productName.length() > 20){
+            this.productName = productName.substring(0, 20);
+    }
+   else{
+       this.productName = productName;
+    }
+       // max length = 20 characters, default value is "".
                                     // When constructor is called, if the name is >20 chars, you should
                                     // only store the first 20 characters (Hint: use substr())
 
-    private int productCode ;  // valid values 1000 - 5000 inclusive - default value is 5000
+    private int productCode = 5000 ;
+   if ((productCode.length() >= 1000) && (productCode.length() <= 5000)){
+       this.productCode = productCode;
+    }// valid values 1000 - 5000 inclusive - default value is 5000
 
     private double unitCost;  //valid values are any positive number - default to 1
 
     private boolean inCurrentProductLine;   // no validation required. Default
     /**
+     *
      * Constructor for objects of class Product
      * @param productName Name of the product
      * @param productCode Code of the product
