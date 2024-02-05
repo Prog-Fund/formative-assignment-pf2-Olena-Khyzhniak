@@ -126,10 +126,10 @@ public class Product {
     //  "Product description: Flatscreen TV  product code: 2000  unit cost: 1000 and currently in product line: Y"
 
     {
-        return "Product: " + productName +
-                ", product code: " + productCode +
-                ", unit cost: " + unitCost +
-                ", currently in product line: " + (inCurrentProductLine ? 'Y' : 'N');
+        return "Product description: " + productName +
+                " product code: " + productCode +
+                " unit cost: " + unitCost +
+                " currently in product line: " + inCurrentProductLine;
     }
 
 }
