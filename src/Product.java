@@ -6,7 +6,7 @@
 public class Product {
 
     private String productName = "";
-    private int productCode = 5000 ;
+    private int productCode = 5000;
     private double unitCost = 1;
     private boolean inCurrentProductLine;
 
@@ -33,6 +33,7 @@ public class Product {
      * @param unitCost Unit cost of the product - valid values are any positive number
      */
     public Product(String productName, int productCode, double unitCost, boolean inCurrentProductLine) {
+       setProductCode(productCode);
         if(productName !=null){
             if (productName.length() <= 20)
                 this.productName = productName;
