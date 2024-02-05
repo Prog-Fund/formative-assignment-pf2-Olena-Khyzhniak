@@ -11,24 +11,20 @@ public class Product {
     private boolean inCurrentProductLine;
 
 
-        if (productName.length() > 20){
-            this.productName = productName.substring(0, 20);
-    }
-   else{
-       this.productName = productName;
-    }
-       // max length = 20 characters, default value is "".
+
+       //name    max length = 20 characters, default value is "".
                                     // When constructor is called, if the name is >20 chars, you should
                                     // only store the first 20 characters (Hint: use substr())
 
-    private int productCode = 5000 ;
-   if ((productCode.length() >= 1000) && (productCode.length() <= 5000)){
-       this.productCode = productCode;
-    }// valid values 1000 - 5000 inclusive - default value is 5000
+        // Product code - valid values 1000 - 5000 inclusive - default value is 5000
 
-    private double unitCost;  //valid values are any positive number - default to 1
+        //unitCost - valid values are any positive number - default to 1
 
-    private boolean inCurrentProductLine;   // no validation required. Default
+        //inCurrentProductLine -  no validation required. Default
+
+
+
+
     /**
      *
      * Constructor for objects of class Product
@@ -37,9 +33,15 @@ public class Product {
      * @param unitCost Unit cost of the product - valid values are any positive number
      */
     public Product(String productName, int productCode, double unitCost, boolean inCurrentProductLine) {
-       this.productName = productName;
-       this.productCode = productCode;
+        if(productName !=null){
+            if (productName.length() <= 20)
+                this.productName = productName;
+            else
+                this.productName = productName.substring(0,20);
+        }
+        this.productCode = productCode;
        this.unitCost = unitCost;
+       this.inCurrentProductLine = inCurrentProductLine;
     }
 
     //-------
@@ -81,21 +83,31 @@ public class Product {
      * @param productCode The new Product Code
      */
     public void setProductCode(int productCode) {
+        if ((productCode >= 1000) && (productCode <= 5000)) {
             this.productCode = productCode;
+        }
     }
     /**
      * Updates the Product Name to the value passed as a parameter
      * @param productName The new Product Name
      */
     public void setProductName(String productName) {
-            this.productName = productName;
+        if(productName != null){
+        if (productName.length() > 20)
+                this.productName = productName.substring(0, 20);
+            }
+            else{
+                this.productName = productName;
+            }
     }
     /**
      * Updates the Unit Cost to the value passed as a parameter
      * @param unitCost The new unit cost for the product
      */
     public void setUnitCost(double unitCost) {
+        if ((unitCost > 0) && (unitCost <= 99999)) {
             this.unitCost = unitCost;
+        }
     }
     /**
      * Updates the boolean indicating whether the product is in the current product line or not.
@@ -114,7 +126,10 @@ public class Product {
     //  "Product description: Flatscreen TV  product code: 2000  unit cost: 1000 and currently in product line: Y"
 
     {
-        return "TO DO WRITE TOSTRING";
+        return "Product: " + productName +
+                ", product code: " + productCode +
+                ", unit cost: " + unitCost +
+                ", currently in product line: " + (inCurrentProductLine ? 'Y' : 'N');
     }
 
 }
