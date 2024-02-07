@@ -130,7 +130,7 @@ public class Product {
         return "Product description: " + productName +
                 " product code: " + productCode +
                 " unit cost: " + unitCost +
-                " currently in product line: " + inCurrentProductLine;
+                " currently in product line: " + (inCurrentProductLine ? 'Y' : 'N');
     }
 
 }
